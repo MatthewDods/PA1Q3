@@ -17,9 +17,10 @@ public class TicketingSystem {
     
     public static void main(String[] args) {
         Timer timer = new Timer();
-        timer.schedule(new SalesAssisstantTask(), 0, 5000); //run code in the SalesAssistantTask run() method every 3 seconds
+        timer.schedule(new SalesAssisstantTask(), 0, 5000);
         timer.schedule(new CustomerAdd(), 0, 3000);
     }
+    
     public static class SalesAssisstantTask extends TimerTask { //inner class
        
         public void run() {
@@ -32,7 +33,7 @@ public class TicketingSystem {
     }
     
     public static class CustomerAdd extends TimerTask { //inner class
-       public int num = 1;
+       public int num = 1; // so that num will properly increment instead of being reinitialised each call
        
         public void run() {
             queue.add(num);
